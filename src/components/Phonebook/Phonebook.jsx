@@ -40,8 +40,11 @@ export class Phonebook extends Component {
   };
 
   SubmitNameForm = ({ name, number }, { resetForm }) => {
-    if (this.state.contacts.find(contact => contact.name === name))
+    const isExist = this.state.contacts.find(contact => contact.name === name);
+
+    if (isExist) {
       return alert(`${name} is alredy in contacts.`);
+    }
 
     const contact = {
       name,
